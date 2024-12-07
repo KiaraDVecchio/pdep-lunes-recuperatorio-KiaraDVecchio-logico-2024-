@@ -37,3 +37,18 @@ esPropiedadCopada(departamento(_, Banios)) :-
 
 esPropiedadCopada(loft(AnioConstruido)) :-
     AnioConstruido > 2015.  
+
+%%%%%% PUNTO 3 %%%%%%
+
+esCaro(UnBarrio) :-
+    barrio(_, UnBarrio), 
+    forall((barrio(UnaPersona, UnBarrio), vive(UnaPersona, UnaPropiedad)), not(esBarata(UnaPropiedad))).
+
+esBarata(casa(MetrosCuadrados)) :-
+    MetrosCuadrados < 90. 
+    
+esBarata(departamento(Ambientes, _)) :-
+        Ambientes < 3. % es decir, uno o dos ambientes. 
+    
+esBarata(loft(AnioConstruido)) :-
+        AnioConstruido < 2005. 
