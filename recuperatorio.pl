@@ -63,3 +63,14 @@ esBarata(departamento(Ambientes, _)) :-
     
 esBarata(loft(AnioConstruido)) :-
     AnioConstruido < 2005. 
+
+%%%%%% PUNTO 4 %%%%%%
+
+% tasacion(persona, UnValor).
+
+tasacion(juan, 150000).
+tasacion(nico, 80000).
+tasacion(alf, 75000).
+tasacion(julian, 140000).
+tasacion(vale, 95000).
+tasacion(fer, 60000). 
