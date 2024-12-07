@@ -27,7 +27,11 @@ barrio(fer, flores).
 
 esCopado(UnBarrio) :- 
     barrio(_, UnBarrio), 
-    forall((barrio(UnaPersona, UnBarrio), vive(UnaPersona, UnaPropiedad)), esPropiedadCopada(UnaPropiedad)).
+    forall(barrio(UnaPersona, UnBarrio), viveEnPropiedadCopada(UnaPersona)).
+
+viveEnPropiedadCopada(UnaPersona) :-
+    vive(UnaPersona, UnaPropiedad),
+    esPropiedadCopada(UnaPropiedad). 
 
 esPropiedadCopada(casa(MetrosCuadrados)) :-
     MetrosCuadrados > 100. 
@@ -39,19 +43,23 @@ esPropiedadCopada(departamento(_, Banios)) :-
     Banios > 1. 
 
 esPropiedadCopada(loft(AnioConstruido)) :-
-    AnioConstruido > 2015.  
+    AnioConstruido > 2015. 
 
 %%%%%% PUNTO 3 %%%%%%
 
 esCaro(UnBarrio) :-
     barrio(_, UnBarrio), 
-    forall((barrio(UnaPersona, UnBarrio), vive(UnaPersona, UnaPropiedad)), not(esBarata(UnaPropiedad))).
+    forall(barrio(UnaPersona, UnBarrio), not(viveEnCasaBarata(UnaPersona))).
+
+viveEnCasaBarata(UnaPersona) :-
+    vive(UnaPersona, UnaPropiedad),
+    esBarata(UnaPropiedad).
 
 esBarata(casa(MetrosCuadrados)) :-
     MetrosCuadrados < 90. 
     
 esBarata(departamento(Ambientes, _)) :-
-        Ambientes < 3. % es decir, uno o dos ambientes. 
+    Ambientes < 3. % es decir, uno o dos ambientes. 
     
 esBarata(loft(AnioConstruido)) :-
-        AnioConstruido < 2005. 
+    AnioConstruido < 2005. 
