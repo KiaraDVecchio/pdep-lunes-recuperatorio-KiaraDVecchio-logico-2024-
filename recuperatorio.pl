@@ -8,9 +8,12 @@
 % vive(persona, propiedad).
 vive(juan, casa(120)).
 vive(nico, departamento(3, 2)). 
+vive(alf, departamento(3, 1)). 
 vive(julian, loft(2000)). 
 vive(vale, departamento(4, 1)).
 vive(fer, casa(110)). 
+
+% Rocio quiere mudarse, pero todavia no vive alli. Precido como Felipe, que no sabemos donde vive
 
 % barrio(persona, nombreBarrio). 
 barrio(alf, almagro). 
